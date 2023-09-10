@@ -46,8 +46,15 @@ module.exports = {
             patterns: [
               {
                 from: path.posix.join(
-                    path.resolve(__dirname, 'assets/visuals/player/adventurer').replace(/\\/g, '/'),
+                    path.resolve(__dirname, 'assets/visuals/player').replace(/\\/g, '/'),
                     '*'
+                ),
+                to: path.resolve(__dirname, 'build'),
+              },
+              {
+                from: path.posix.join(
+                  path.resolve(__dirname, 'assets/json/playerHitboxData').replace(/\\/g, '/'),
+                  '*'
                 ),
                 to: path.resolve(__dirname, 'build'),
               },
@@ -57,7 +64,10 @@ module.exports = {
     devServer: {
         static: [
           {
-            directory: path.join(__dirname, 'build/assets/visuals/player/adventurer')
+            directory: path.join(__dirname, 'build/assets/visuals/player')
+          },
+          {
+            directory: path.join(__dirname, 'build/assets/json/playerHitboxData')
           },
         ],
         hot: true,
